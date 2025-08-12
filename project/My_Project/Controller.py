@@ -1,8 +1,8 @@
-import servo
+import Servo
 from machine import PWM
 import time
 import PiicoDev_ultrasonic
-import PiicoDev_potentiometer
+import PiicoDev_Potentiometer
 
 
 
