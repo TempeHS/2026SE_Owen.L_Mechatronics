@@ -1,7 +1,7 @@
 from servo import Servo
-from machine import PWM
+from machine import Pin, PWM
 import time
-import PiicoDev_Ultrasonic
+from project.lib.PiicoDev_Ultrasonic import PiicoDev_Ultrasonic
 
 class Simple_Movement:
     def __init__ (self, right_Servo, left_Servo):
@@ -29,13 +29,9 @@ class Simple_Movement:
         self.__left_Servo.set_duty(1200)
 
 class Ultrasonic:               #ultrasonic_sensor
-    def __init__ (self, range_a, range_b):
-        self.__range_a = range_a
-        self.__range_b = range_b 
-
-    def Distance(self):
-        self.__range_a.distance_mm (id=[0, 0, 0, 0])
-        self.__range_b.distance_mm (id=[1, 0, 0, 0])
+    def __init__(self, range_a, range_b):
+        self.__range_a = PiicoDev_Ultrasonic(id=[0, 0, 0, 0])
+        self.__range_b = PiicoDev_Ultrasonic(id=[1, 0, 0, 0])
 
     def Forward_dis(self):
         return int(self.__range_a.distance_mm) 
@@ -43,27 +39,37 @@ class Ultrasonic:               #ultrasonic_sensor
     def Side_dis(self):
         return int(self.__range_b.distance_mm)
 
-class Combination:             
-    def __init__(self, foward, side, state):
-        self.__foward = foward
-        self.__side = side
-        self.__state = "sumtingwong"
+class Combination(Simple_Movement, Ultrasonic):             
+    def __init__(self, forward, side, state):
+        self.__foward = int(Ultrasonic.Forward_dis(self))
+        self.__side = int(Ultrasonic.Side_dis(self))
 
     def set_idle(self):
+        print ("IDLE")
         Simple_Movement.Idle
+        self.__state = "idle"
 
-    def foward(self):
+    def forward(self):
+        print ("FORWARD")
         Simple_Movement.Move_forward
-
+        self.__state = "forward"
 
     def turn_right(self):
+        print ()"RIGHT")
         Simple_Movement.R_Turn
-
+        self.__state = "right"
 
     def turn_left(self):
+        print ("LEFT")
         Simple_Movement.L_Turn
+        self.__state = "left"
 
     def back(self):
+        print ("REVERSE")
         Simple_Movement.Backward
+        self.__state = "backwards"
 
+    def united(self):
+        print("manchester")
+        if self.last_forward
 
