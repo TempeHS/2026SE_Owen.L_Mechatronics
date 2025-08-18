@@ -55,7 +55,7 @@ class Combination(Simple_Movement, Ultrasonic):
         self.__state = "forward"
 
     def turn_right(self):
-        print ()"RIGHT")
+        print ("RIGHT")
         Simple_Movement.R_Turn
         self.__state = "right"
 
@@ -71,5 +71,10 @@ class Combination(Simple_Movement, Ultrasonic):
 
     def united(self):
         print("manchester")
-        if self.last_forward
-
+        if self.Forward_dis #< 100: <-idk how to make this work
+            if self.Side_dis #< 100:
+                self.turn_left()
+            else:
+                self.turn_right()
+        else:
+            self.forward()
