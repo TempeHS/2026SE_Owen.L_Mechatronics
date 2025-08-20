@@ -3,7 +3,7 @@ from machine import Pin, PWM
 import time
 from project.lib.PiicoDev_Ultrasonic import PiicoDev_Ultrasonic
 
-class Simple_Movement:
+class Simple_Movement:      #basic movement functions
     def __init__ (self, right_Servo, left_Servo):
         self.__right_Servo = Servo(pwm=16, min_us=500, max_us=2500, dead_zone_us=1500, freq=50)
         self.__left_Servo = Servo(pwm=20, min_us=500, max_us=2500, dead_zone_us=1500, freq=50)
@@ -28,7 +28,7 @@ class Simple_Movement:
         self.__right_Servo.set_duty(1200)
         self.__left_Servo.set_duty(1200)
 
-class Ultrasonic:               #ultrasonic_sensor
+class Ultrasonic:               #ultrasonic sensor
     def __init__(self, range_a, range_b):
         self.__range_a = PiicoDev_Ultrasonic(id=[0, 0, 0, 0])
         self.__range_b = PiicoDev_Ultrasonic(id=[1, 0, 0, 0])
@@ -39,7 +39,7 @@ class Ultrasonic:               #ultrasonic_sensor
     def Side_dis(self):
         return int(self.__range_b.distance_mm)
 
-class Combination(Simple_Movement, Ultrasonic):             
+class Combination(Simple_Movement, Ultrasonic):     #combining the movement functions and ultrasonic sensor functions        
     def __init__(self, forward, side, state):
         self.__foward = int(Ultrasonic.Forward_dis(self))
         self.__side = int(Ultrasonic.Side_dis(self))
@@ -71,8 +71,8 @@ class Combination(Simple_Movement, Ultrasonic):
 
     def united(self):
         print("manchester")
-        if self.Forward_dis #< 100: <-idk how to make this work
-            if self.Side_dis #< 100:
+        if self.Forward_dis: #< 100: <-idk how to make this work
+            if self.Side_dis: #< 100:
                 self.turn_left()
             else:
                 self.turn_right()
