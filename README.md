@@ -1,59 +1,64 @@
 # Project Title
 
-Simple overview of use/purpose.
+Wall Detecting Robot Using OOP Systems
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+This project presents a prototype developed using OOP. Its main goal was to build a basic robot capable of object and color detection. The codebase features multiple classes organized through layered inheritance.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+- Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+- Requires at least Windows 10/equivelant MacOS
+- Python Libraires: servo.py, PiicoDev_Ultrasonic
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+- Program is downloadable from github
+- No changes are neccasary for files to run if the files are unaltered
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+- Connect Piico Pi to computer
+- Soft Reset Piico Pi
+- Upload project into Piico Pi
+- Run `Movement.py` file
+- Robot runs until hardware fail (e.g. batteries dying)
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Run Unit Tests to diagnose potential issues within robot's movement and ultrasonic software
+
+Issues may occur in complicated environments restricting movement
 
 ## Authors
 
-Contributors names and contact info
+Owen Leigh
+[@OwenLeigh](https://github.com/OwenLeigh)
 
-ex. Mr Jones
-ex. [@benpaddlejones](https://github.com/benpaddlejones)
+Ben Jones
+[@benpaddlejones](https://github.com/benpaddlejones)
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]() or see [branch]()
-* 0.1
-    * Initial Release
+- 0.1
+  - Unit tests added
+  - README.md content added
+- 0.0.2 - 0.0.9
+  - Various bug fixes and optimizations
+  - Various features added
+- 0.0.1
+  - Initial Release
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the GNU GENERAL PUBLIC LICENSE License - see the LICENSE.md file for details
 
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [Github md syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [TempeHS MicroPython template](https://github.com/TempeHS/TempeHS_MicroPython_DevContainer)
+
+- [Github md syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [TempeHS MicroPython template](https://github.com/TempeHS/TempeHS_MicroPython_DevContainer)
