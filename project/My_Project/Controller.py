@@ -4,8 +4,6 @@ import time
 import PiicoDev_ultrasonic
 import PiicoDev_Potentiometer
 
-
-
-class fezhat:               #fezhat placeholder name
+class fezhat:               
     def __init__(self):
         
