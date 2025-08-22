@@ -1,5 +1,4 @@
-from project.My_Project.Movement import Ultrasonic  # Replace with your actual module name
-
+from Movement import Ultrasonic 
 ultra = Ultrasonic(range_a=[0, 0, 0, 0], range_b=[1, 0, 0, 0])
 
 print("Forward distance:", ultra.Forward_dis(), "mm")
